@@ -4,7 +4,7 @@ const ejs = require('ejs')
 const publicPath = path.join(__dirname, '/public')
 const viewsPath = path.join(__dirname, '/public/templates')
 const bodyParser = require('body-parser');
-require('dotenv').config({path:__dirname+'/./config/.env'});
+require('dotenv').config({path:__dirname+'/.env'});
 
 const app = express()
 

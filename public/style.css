@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    display: flex; /* or inline-flex */
+    flex-direction: row;
+    justify-content: center;
+}
+
+.home-button{
+    margin-top: 60%;
+    background-image: url('https://mmm-freight.com/wp-content/uploads/2018/04/mmm-logo-retina.png');
+    background-position: center; /* Center the image */
+    background-color: rgb(190, 226, 255);
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 50%; /* Resize the background image to cover the entire container */
+    height: 200px;
+    width: 500px;
+    padding: 50px;
+}
+
+@media screen and (min-width: 1950px) and (max-width: 2001px) {
+    .home-button {
+        margin-top: 500px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .home-button {
+        margin-top: 330px;
+        height: 100px;
+        width: 270px;
+    }
+}
