@@ -4,12 +4,11 @@ const ejs = require('ejs')
 const publicPath = path.join(__dirname, '/public')
 const viewsPath = path.join(__dirname, '/public/templates')
 const bodyParser = require('body-parser');
+require('dotenv').config({path:__dirname+'/./config/.env'});
 
 const app = express()
 
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
 
 // Home
 app.get('/', async (req, res) => {
@@ -20,6 +19,6 @@ app.set('view engine', 'ejs')
 app.set('views', viewsPath)
 
 
-app.listen("8000", () => {
-    console.log("Server is up on port 8000")
+app.listen(process.env.PORT, () => {
+    console.log("Server is up on port " + process.env.PORT)
 })
