@@ -3,7 +3,6 @@
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
-    overflow: scroll;
 }
 
 body{
@@ -16,7 +15,6 @@ body{
 
 .home-page{
     margin-top: 20%;
-    overflow: scroll;
 }
 
 .home-button{
@@ -54,6 +52,7 @@ body{
 
 .footer {
 	margin-left: 20px;
+	padding-top: 50px;
 	left: 0;
 	bottom: 0;
 	width: 94%;
@@ -73,7 +72,7 @@ body{
 .third-page{
     margin-top: 10px;
     width: 90vw;
-    height: 95vh;
+    min-height: 90vh;
     padding: 35px;
     display:none;
     position: fixed;
@@ -86,17 +85,38 @@ main{
 }
 
 .left-sidebar{
-    height: 80%;
-    background: red;
+    min-height: 300px;
     width: 47%;
     float: left;
 }
 
 .right-sidebar{
     height: 80%;
-    background: green;
+    background: rgb(235, 235, 235);
     width: 47%;
     float: right;
+}
+
+.dropdown-buttons{
+    /* display: none; */
+    
+}
+
+.dropdown-button{
+    margin: 5px;
+    width: 90%;
+    box-shadow: 0px 2px 10px rgb(233, 233, 233) !important;
+    border: 1px solid rgb(211, 211, 211) !important;
+}
+
+.list-group-item{
+    margin: 6px;
+    box-shadow: 0px 2px 10px rgb(233, 233, 233) !important;
+    border: 1px solid rgb(207, 207, 207) !important;
+}
+
+.list-group-item:hover{
+    cursor: pointer;
 }
 
 @media screen and (min-width: 1950px) and (max-width: 2001px) {

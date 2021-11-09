@@ -67,14 +67,20 @@
         
         <main>  
           <div class="left-sidebar">
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            <button type="button" class="btn dropdown-button" onclick="BackOnClick()">Back</button>
-            
-          </div>
+            <div class="dropdown-buttons">
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer Electronics')">Trailer Electronics</button>
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer Brake')">Trailer Brake</button>
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Air System of the Trailer')">Air System of the Trailer</button>
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Engine')">Engine</button>
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer SUSPENSION')">Trailer SUSPENSION</button>
+              <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer Repair')">Trailer Repair</button>
+            </div>
+
+            <ul id="list-group">
+              
+            </ul>
+              
+            </div>
           <div class="right-sidebar">
             a
           </div>
