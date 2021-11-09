@@ -38,6 +38,16 @@ const ListGroupItemOnClick = (name) => {
 const DeleteBoxOnClick = (name) => {
     $("#list-group").hide();
     $(".dropdown-buttons").fadeIn(200);
+    // let newBoxNames = []
+    // let infFlag = false
+    // boxNames.forEach((item)=>{
+    //     if (item != name || infFlag) {
+    //         newBoxNames += item
+    //     }else{
+    //         infFlag = true
+    //     }
+    // })
+    // boxNames = newBoxNames.values
     boxNames = boxNames.filter(item => item != name)
     ReRenderBoxes()
 }
@@ -48,10 +58,10 @@ const ReRenderBoxes = () => {
         str += 
         `
             <div class="trailer-report-box">
-              <h4 style="float: left;">
+              <h6 style="float: left;">
                 
               ` + nameStr + `
-              </h4>
+              </h6>
               <input type="text" class="form-control" id="exampleInputEmail1">
 
               <div class="form-check" id="exampleCheckID4">
@@ -102,9 +112,9 @@ const DropdownButtonOnClick = (name) => {
         case "Air System of the Trailer":
             document.getElementById("list-group").innerHTML = 
             `
-                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR LINE)">REPLACED AIR LINE<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR FITTING)">REPLACED AIR FITTING<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIRBAG)'">REPLACED AIRBAG<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR LINE')">REPLACED AIR LINE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR FITTING')">REPLACED AIR FITTING<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIRBAG')">REPLACED AIRBAG<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED BRAKE VALVE')">REPLACED BRAKE VALVE<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED PRESSURE PROTECTION VALVE')">REPLACED PRESSURE PROTECTION VALVE<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR TANK')">REPLACED AIR TANK<span style="float: right;">→</span></li>
