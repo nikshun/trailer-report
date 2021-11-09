@@ -104,8 +104,8 @@ const DropdownButtonOnClick = (name) => {
             `
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR LINE)">REPLACED AIR LINE<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR FITTING)">REPLACED AIR FITTING<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIRBAG)">REPLACED AIRBAG<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED BRAKE VALVE)">REPLACED BRAKE VALVE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIRBAG)'">REPLACED AIRBAG<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED BRAKE VALVE')">REPLACED BRAKE VALVE<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED PRESSURE PROTECTION VALVE')">REPLACED PRESSURE PROTECTION VALVE<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED AIR TANK')">REPLACED AIR TANK<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE LEVELING VALVE')">REPLACE LEVELING VALVE<span style="float: right;">→</span></li>
