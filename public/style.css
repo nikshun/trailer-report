@@ -8,7 +8,7 @@
 body{
     display: flex; /* or inline-flex */
     flex-direction: row;
-    overflow: scroll;
+    overflow: auto;
     justify-content: center;
     height: 100%;
 }
@@ -44,6 +44,7 @@ body{
     margin-top: 10px;
     margin-bottom: 10px;
     width: 90vw;
+    min-height: 90vh;
     padding: 35px;
     display:none;
     border: 2px solid rgb(219, 219, 219);
@@ -85,21 +86,20 @@ main{
 }
 
 .left-sidebar{
-    min-height: 300px;
+    height: 300px;
     width: 47%;
     float: left;
+    overflow: auto;
 }
 
 .right-sidebar{
     height: 80%;
-    background: rgb(235, 235, 235);
     width: 47%;
     float: right;
 }
 
 .dropdown-buttons{
     /* display: none; */
-    
 }
 
 .dropdown-button{
@@ -117,6 +117,28 @@ main{
 
 .list-group-item:hover{
     cursor: pointer;
+}
+
+.form-check{
+    margin-top: 5px;
+}
+
+.trailer-report-box{
+    padding: 10px;
+    margin: 6px;
+    box-shadow: 0px 2px 10px rgb(233, 233, 233) !important;
+    border: 1px solid rgb(207, 207, 207) !important;
+    padding-bottom: 70px;
+}
+
+#exampleCheckID4{
+    margin-top: 20px;
+    float: left;
+    font-size: 1.1em;
+}
+
+.checkbox{
+    font-size: 1.3em;
 }
 
 @media screen and (min-width: 1950px) and (max-width: 2001px) {

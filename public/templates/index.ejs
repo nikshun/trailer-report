@@ -42,15 +42,15 @@
             </div>
 
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Carrier</label>
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck2">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck2">
                 <label class="form-check-label" for="exampleCheck2">Thermo King</label>
               </div>
               <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck3">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck3">
                 <label class="form-check-label" for="exampleCheck3">Other</label>
               </div>
           </form>
@@ -76,19 +76,44 @@
               <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer Repair')">Trailer Repair</button>
             </div>
 
-            <ul id="list-group">
+            <div id="list-group">
               
-            </ul>
+            </div>
               
             </div>
           <div class="right-sidebar">
-            a
+            <div class="trailer-report-box">
+              <h4 style="float: left;">
+                KAVKAZ TRailer
+              </h4>
+                <!-- <span style="float: right;">
+                  <input type="checkbox" class="form-check-input checkbox" id="exampleCheck3">
+                  <h5>
+                    Used
+                  </h5>
+                </span> -->
+              <input type="text" class="form-control" id="exampleInputEmail1">
+
+              <div class="form-check" id="exampleCheckID4">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck4">
+                <label class="form-check-label" for="exampleCheck4">Used</label>
+              </div>
+              
+              <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                </svg>
+                Button
+              </button>
+              
+            </div>
           </div>
         </main>
 
         <div class="footer">
-                <button type="button" class="btn direction-button" onclick="TruckOnClick()">Рома</button>
-                <button type="button" class="btn direction-button" onclick="TrailerOnClick()">Пидар</button>
+                <button type="button" class="btn direction-button" onclick="TruckOnClick()">Back</button>
+                <button type="button" class="btn direction-button" onclick="location.reload()">Submit</button>
         </div>
     </div>
 
