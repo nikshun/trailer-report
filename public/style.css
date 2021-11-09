@@ -86,14 +86,15 @@ main{
 }
 
 .left-sidebar{
-    height: 300px;
+    height: 400px;
     width: 47%;
     float: left;
     overflow: auto;
 }
 
-.right-sidebar{
-    height: 80%;
+#right-sidebar{
+    height: 400px;
+    overflow: auto;
     width: 47%;
     float: right;
 }
