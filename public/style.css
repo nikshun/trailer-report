@@ -3,17 +3,20 @@
     margin: 0;
     padding: 0;
     font-family: 'PT Sans', sans-serif;
+    overflow: scroll;
 }
 
 body{
     display: flex; /* or inline-flex */
     flex-direction: row;
+    overflow: scroll;
     justify-content: center;
+    height: 100%;
 }
 
 .home-page{
     margin-top: 20%;
-
+    overflow: scroll;
 }
 
 .home-button{
@@ -41,10 +44,10 @@ body{
 
 .second-page{
     margin-top: 10px;
+    margin-bottom: 10px;
     width: 90vw;
     padding: 35px;
     display:none;
-    position: fixed;
     border: 2px solid rgb(219, 219, 219);
     border-radius: 10px;
 }
@@ -103,9 +106,7 @@ main{
 }
 
 @media only screen and (max-width: 800px) {
-    .home-button {
-        margin-page: 330px;
-        height: 100px;
-        width: 270px;
+    .home-page {
+        margin-top: 330px;
     }
 }
