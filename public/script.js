@@ -35,41 +35,32 @@ const ListGroupItemOnClick = (name) => {
     ReRenderBoxes()
 }
 
-const DeleteBoxOnClick = (name) => {
+const DeleteBoxOnClick = (num) => {
     $("#list-group").hide();
     $(".dropdown-buttons").fadeIn(200);
-    // let newBoxNames = []
-    // let infFlag = false
-    // boxNames.forEach((item)=>{
-    //     if (item != name || infFlag) {
-    //         newBoxNames += item
-    //     }else{
-    //         infFlag = true
-    //     }
-    // })
-    // boxNames = newBoxNames.values
-    boxNames = boxNames.filter(item => item != name)
+    // boxNames = boxNames.filter(item => boxNames.indexOf(item) != num)
+    boxNames.splice(num, 1)
     ReRenderBoxes()
 }
 
 const ReRenderBoxes = () => {
     var str = ""
+    var i = 0
     boxNames.forEach((nameStr)=>{
         str += 
         `
             <div class="trailer-report-box">
               <h6 style="float: left;">
-                
               ` + nameStr + `
               </h6>
               <input type="text" class="form-control" id="exampleInputEmail1">
 
               <div class="form-check" id="exampleCheckID4">
-                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck4">
-                <label class="form-check-label" for="exampleCheck4">Used</label>
+                <input type="checkbox" class="form-check-input checkbox">
+                <label class="form-check-label" ">Used</label>
               </div>
               
-              <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + nameStr + `')">
+              <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
                   <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
                   <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
@@ -79,6 +70,7 @@ const ReRenderBoxes = () => {
               
             </div>
         `
+        i++
     })
     document.getElementById("right-sidebar").innerHTML = str
     $("#right-sidebar").fadeIn(200);
@@ -188,4 +180,29 @@ const DropdownButtonOnClick = (name) => {
 
     $(".dropdown-buttons").hide();
     $("#list-group").fadeIn(200);
+}
+
+async function generatePDF() {
+
+    var pdfText = 
+    `
+        Unit: ` + $("#unit").val() + ` \n
+        Date: ` + $("#datePicker").val() + ` \n
+        Company: ` + $("#company").val() + ` \n
+        Hours: ` + $("#hours").val() + ` \n
+        Technician: ` + $("#technician").val() + ` \n
+    `
+    
+    boxNames.forEach(name => {
+        pdfText += 
+        `
+        ` + name +` \n
+        `
+    });
+    
+    const { jsPDF } = window.jspdf;
+
+    const doc = new jsPDF();
+    doc.text(pdfText, 10, 10);
+    doc.save("a4.pdf");
 }
