@@ -118,60 +118,60 @@ const DropdownButtonOnClick = (name) => {
         case "Engine":
             document.getElementById("list-group").innerHTML = 
             `
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED BATTERY#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED STARTER#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED ALTERNATOR#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">alternator braket#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED  BELTS<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED BELT TENSIONER#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">replace sensors#<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">OIL CHANGE<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">change coolant fluid #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED SEAL<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">ENGINE MOUNT REPLACEMENT #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED WATER PUMP #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED MANIFOLD #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE CILINDER HEAD #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPAIR CILINDER HEAD<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">VALVE ADJUSTMENT<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE ENGINE #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE COMPRESSOR #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED BATTERY')">REPLACED BATTERY#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED STARTER#')">REPLACED STARTER#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED ALTERNATOR#')">REPLACED ALTERNATOR#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('alternator braket#')">alternator braket#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED  BELTS')">REPLACED  BELTS<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED BELT TENSIONER#')">REPLACED BELT TENSIONER#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('replace sensors#')">replace sensors#<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('OIL CHANGE')">OIL CHANGE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('change coolant fluid #')">change coolant fluid #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED SEAL')">REPLACED SEAL<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('ENGINE MOUNT REPLACEMENT #')">ENGINE MOUNT REPLACEMENT #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED WATER PUMP #')">REPLACED WATER PUMP #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED MANIFOLD #')">REPLACED MANIFOLD #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE CILINDER HEAD #')">REPLACE CILINDER HEAD #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPAIR CILINDER HEAD')">REPAIR CILINDER HEAD<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('VALVE ADJUSTMENT')">VALVE ADJUSTMENT<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE ENGINE #')">REPLACE ENGINE #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE COMPRESSOR #')">REPLACE COMPRESSOR #<span style="float: right;">→</span></li>
             `
             break;
         case "Trailer SUSPENSION":
             document.getElementById("list-group").innerHTML = 
             `
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED TIRE #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPAIR TIRE<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE RIM #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE BERINGS #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED HUB #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED WHEEL SEAL #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED HUB SEAL #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED TANDEM #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE TANDEM BUSHING<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE AXLE #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACED SHOCK #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED TIRE #')">REPLACED TIRE #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPAIR TIRE')">REPAIR TIRE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE RIM #')">REPLACE RIM #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE BERINGS #')">REPLACE BERINGS #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED HUB #')">REPLACED HUB #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED WHEEL SEAL #')">REPLACED WHEEL SEAL #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED HUB SEAL #')">REPLACED HUB SEAL #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED TANDEM #')">REPLACED TANDEM #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE TANDEM BUSHING')">REPLACE TANDEM BUSHING<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE AXLE #')">REPLACE AXLE #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACED SHOCK #')">REPLACED SHOCK #<span style="float: right;">→</span></li>
             `
             break;
         case "Trailer Repair":
             document.getElementById("list-group").innerHTML = 
             `
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE LENDING GEAR #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPAIRED MUD FLAP<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE DOT STIKER<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE DOT BAR #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE DOOR #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPAIRE DEMAGE<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE AIR SHUTE #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">INSTALL E-TRAKS #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE CROSS MEMBERS #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE PLASTIC ENGINE<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE MUD FLAP BRAKET #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">INSTALL SPARE SUPORT<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE LOCKS #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE DOCK BUMPERS #<span style="float: right;">→</span></li>
-                <li class="list-group-item" onclick="ListGroupItemOnClick()">REPLACE HANDLE LENDING GEAR #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE LENDING GEAR #')">REPLACE LENDING GEAR #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPAIRED MUD FLAP')">REPAIRED MUD FLAP<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE DOT STIKER')">REPLACE DOT STIKER<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE DOT BAR #')">REPLACE DOT BAR #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE DOOR #')">REPLACE DOOR #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPAIRE DEMAGE')">REPAIRE DEMAGE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE AIR SHUTE #')">REPLACE AIR SHUTE #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('INSTALL E-TRAKS #')">INSTALL E-TRAKS #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE CROSS MEMBERS #')">REPLACE CROSS MEMBERS #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE PLASTIC ENGINE')">REPLACE PLASTIC ENGINE<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE MUD FLAP BRAKET #')">REPLACE MUD FLAP BRAKET #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('INSTALL SPARE SUPORT')">INSTALL SPARE SUPORT<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE LOCKS #')">REPLACE LOCKS #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE DOCK BUMPERS #')">REPLACE DOCK BUMPERS #<span style="float: right;">→</span></li>
+                <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE HANDLE LENDING GEAR #')">REPLACE HANDLE LENDING GEAR #<span style="float: right;">→</span></li>
             `
             break;                                           
         default:
