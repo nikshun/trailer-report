@@ -1,4 +1,5 @@
-var boxNames = []
+var boxNames = [[]]
+var choiceName = ""
 
 $( document ).ready(function() {
     $("#list-group").hide();
@@ -6,26 +7,60 @@ $( document ).ready(function() {
 
 const TruckOnClick = () => {
     $(".home-page").hide();
-    $(".third-page").hide();
     $(".second-page").fadeIn(200);
+    $(".third-page").hide();
+    $(".third3-page").hide();
+    choiceName = "Truck Labourate"
 }
 
 const TrailerOnClick = () => {
     $(".home-page").hide();
     $(".third-page").hide();
+    $(".third3-page").hide();
     $(".second-page").fadeIn(200);
+    choiceName = "Trailer Labourate"
 }
 
-const BackOnClick = () => {
-    $(".second-page").hide();
-    $(".third-page").hide();
-    $(".home-page").fadeIn(200);
+const BackOnClick = (num) => {
+    if (num == 1) {
+        $(".home-page").fadeIn(200);
+        $(".third-page").hide();
+        $(".third3-page").hide();
+        $(".second-page").hide();        
+    }
+    else if (num == 3) {
+        $(".home-page").hide();
+        $(".third-page").fadeIn(200);
+        $(".third3-page").hide();
+        $(".second-page").hide();        
+    }
+    else{
+        $(".home-page").hide();
+        $(".third-page").hide();
+        $(".third3-page").hide();
+        $(".second-page").fadeIn(200);
+    }
 }
 
-const NextOnClick = () => {
-    $(".second-page").hide();
-    $(".home-page").hide();
-    $(".third-page").fadeIn(200);
+const NextOnClick = (num) => {
+    if (num == 1) {
+        $(".home-page").hide();
+        $(".third-page").fadeIn(200);
+        $(".third3-page").hide();
+        $(".second-page").hide();        
+    }
+    else if (num == 2) {
+        $(".home-page").hide();
+        $(".second-page").hide();
+        $(".third-page").hide();        
+        $(".third3-page").fadeIn(200);
+    }
+    else{
+        $(".home-page").hide();
+        $(".third-page").hide();
+        $(".third3-page").hide();
+        $(".second-page").fadeIn(200);
+    }
 }
 
 const ListGroupItemOnClick = (name) => {
@@ -184,25 +219,33 @@ const DropdownButtonOnClick = (name) => {
 
 async function generatePDF() {
 
-    var pdfText = 
-    `
-        Unit: ` + $("#unit").val() + ` \n
-        Date: ` + $("#datePicker").val() + ` \n
-        Company: ` + $("#company").val() + ` \n
-        Hours: ` + $("#hours").val() + ` \n
-        Technician: ` + $("#technician").val() + ` \n
-    `
+    var pdfText = ""
     
     boxNames.forEach(name => {
         pdfText += 
         `
-        ` + name +` \n
+        ` + name +` %0D%0A
+        (` + name +`) <br>
         `
     });
     
-    const { jsPDF } = window.jspdf;
+    // const { jsPDF } = window.jspdf;
 
-    const doc = new jsPDF();
-    doc.text(pdfText, 10, 10);
-    doc.save("a4.pdf");
+    // const doc = new jsPDF();
+    // doc.text(pdfText, 10, 10);
+    // doc.save("a.pdf");
+
+    emailjs.init("user_5v0M9R0u5GcR6baxunaZd");
+    emailjs.send("trailers-nik","template_ho4q8cj",{
+        type: choiceName,
+        unit: $("#unit").val(),
+        date: $("#datePicker").val(),
+        company: $("#company").val(),
+        hours: $("#hours").val(),
+        technician: $("#technician").val(),
+
+        report_list: pdfText,
+
+    });
+
 }

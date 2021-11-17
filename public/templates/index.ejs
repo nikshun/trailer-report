@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
 <body>
   <div id="to-pdf">
@@ -19,7 +20,7 @@
     </div>
 
     <div class="second-page">
-        <div class="title">Trailer Work Order: 1/2</div>
+        <div class="title">Trailer Work Order: 1/3</div>
         <br>
         <form>
 
@@ -59,13 +60,69 @@
           </form>
 
         <div class="footer">
-                <button type="button" class="btn direction-button" onclick="BackOnClick()">Back</button>
-                <button type="button" class="btn direction-button" onclick="NextOnClick()">Next</button>
+                <button type="button" class="btn direction-button" onclick="BackOnClick(1)">Back</button>
+                <button type="button" class="btn direction-button" onclick="NextOnClick(1)">Next</button>
         </div>
     </div>
 
     <div class="third-page">
-        <div class="title">Trailer Work Order: 2/2</div>
+        <div class="title">Trailer Work Order: 2/3</div>
+        <br>
+        <form>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck11">
+                <label class="form-check-label" for="exampleCheck11">Brake Adjust</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck22">
+                <label class="form-check-label" for="exampleCheck22">Clean Inside</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck33">
+                <label class="form-check-label" for="exampleCheck33">Grease</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck4">
+                <label class="form-check-label" for="exampleCheck4">Bearings Adjusted</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck5">
+                <label class="form-check-label" for="exampleCheck5">Tire Pressures</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck6">
+                <label class="form-check-label" for="exampleCheck6">Brake System</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck7">
+                <label class="form-check-label" for="exampleCheck7">Lights</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck8">
+                <label class="form-check-label" for="exampleCheck8">Air Leaks</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck9">
+                <label class="form-check-label" for="exampleCheck9">Suspension</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck99">
+                <label class="form-check-label" for="exampleCheck99">Seals</label>
+              </div>
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input checkbox" id="exampleCheck399">
+                <label class="form-check-label" for="exampleCheck399">Tires</label>
+              </div>  
+          </form>
+
+        <div class="footer">
+                <button type="button" class="btn direction-button" onclick="BackOnClick(2)">Back</button>
+                <button type="button" class="btn direction-button" onclick="NextOnClick(2)">Next</button>
+        </div>
+    </div>
+
+    <div class="third3-page">
+        <div class="title">Trailer Work Order: 3/3</div>
         <br>
         
         <div>  
@@ -89,19 +146,28 @@
         </div>
 
         <div class="footer">
-                <button type="button" class="btn direction-button" onclick="TruckOnClick()">Back</button>
+                <button type="button" class="btn direction-button" onclick="BackOnClick(3)">Back</button>
                 <button type="button" class="btn direction-button" onclick="generatePDF()">Submit</button>
         </div>
     </div>
   </div>
-  
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-		<script>
-			
-		</script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("user_5v0M9R0u5GcR6baxunaZd");
+      emailjs.send("trailers-nik","template_ho4q8cj",{
+        from_name: "nik",
+        to_name: "misha",
+        message: "sex",
+        reply_to: "yes?",
+      });
+    })();
+  </script>
+    
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
 </body>
 </html>

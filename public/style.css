@@ -81,6 +81,17 @@ body{
     border-radius: 10px;
 }
 
+.third3-page{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 90vw;
+    min-height: 90vh;
+    padding: 35px;
+    display:none;
+    border: 2px solid rgb(219, 219, 219);
+    border-radius: 10px;
+}
+
 main{
     height: 500px;
 }
