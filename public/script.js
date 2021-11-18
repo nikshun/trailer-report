@@ -1,5 +1,6 @@
-var boxNames = [[]]
 var choiceName = ""
+
+var boxNames = []
 
 $( document ).ready(function() {
     $("#list-group").hide();
@@ -82,29 +83,53 @@ const ReRenderBoxes = () => {
     var str = ""
     var i = 0
     boxNames.forEach((nameStr)=>{
-        str += 
-        `
-            <div class="trailer-report-box">
-              <h6 style="float: left;">
-              ` + nameStr + `
-              </h6>
-              <input type="text" class="form-control" id="exampleInputEmail1">
-
-              <div class="form-check" id="exampleCheckID4">
-                <input type="checkbox" class="form-check-input checkbox">
-                <label class="form-check-label" ">Used</label>
-              </div>
-              
-              <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
-                  <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                  <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
-                </svg>
-                Button
-              </button>
-              
-            </div>
-        `
+        if(nameStr.slice(-1) == "#"){
+            str += 
+            `
+                <div class="trailer-report-box">
+                    <h6 style="float: left;">
+                    ` + nameStr + `
+                    </h6>
+                    <input type="text" class="form-control" id="ctrl` + i + `">
+                    
+                    <div class="form-check" id="exampleCheckID4">
+                    <input type="checkbox" class="form-check-input checkbox">
+                    <label class="form-check-label" ">Used</label>
+                </div>
+                
+                <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                    Button
+                </button>
+                
+                </div>
+            `
+        }else{
+            str += 
+            `
+                <div class="trailer-report-box">
+                    <h6 style="float: left;">
+                    ` + nameStr + `
+                    </h6>
+                    <input type="text" class="form-control" id="ctrl` + i + `">
+                    
+                    <div class="form-check" id="exampleCheckID4">
+                </div>
+                
+                <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                    <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg>
+                    Button
+                </button>
+                
+                </div>
+            `
+        }
         i++
     })
     document.getElementById("right-sidebar").innerHTML = str
@@ -217,17 +242,69 @@ const DropdownButtonOnClick = (name) => {
     $("#list-group").fadeIn(200);
 }
 
+$.date = function(orginaldate) { 
+    var date = new Date(orginaldate);
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    if (day < 10) {
+        day = "0" + day;
+    }
+    if (month < 10) {
+        month = "0" + month;
+    }
+    var date =  month + "/" + day + "/" + year; 
+    return date;
+};
+
 async function generatePDF() {
 
     var pdfText = ""
-    
+    var i = 0
     boxNames.forEach(name => {
         pdfText += 
         `
-        ` + name +` %0D%0A
-        (` + name +`) <br>
+        ` + name +` 
+        (` + $("#ctrl" + i).val() +`) 
         `
+        i++
     });
+
+    var extraText = ""
+
+    if ($("#exampleCheck11").val()) {
+        extraText += "Brake Adjust, "
+    }
+    if ($("#exampleCheck22").val()) {
+        extraText += "Clean Inside, "
+    }
+    if ($("#exampleCheck33").val()) {
+        extraText += "Grease, "
+    }
+    if ($("#exampleCheck4").val()) {
+        extraText += "Bearings Adjusted, "
+    }
+    if ($("#exampleCheck5").val()) {
+        extraText += "Tire Pressures, "
+    }
+    if ($("#exampleCheck6").val()) {
+        extraText += "Brake System, "
+    }
+    if ($("#exampleCheck7").val()) {
+        extraText += "Lights, "
+    }
+    if ($("#exampleCheck8").val()) {
+        extraText += "Air Leaks, "
+    }
+    if ($("#exampleCheck9").val()) {
+        extraText += "Suspension, "
+    }
+    if ($("#exampleCheck99").val()) {
+        extraText += "Seals, "
+    }
+    if ($("#exampleCheck399").val()) {
+        extraText += "Tires "
+    }
     
     // const { jsPDF } = window.jspdf;
 
@@ -239,13 +316,34 @@ async function generatePDF() {
     emailjs.send("trailers-nik","template_ho4q8cj",{
         type: choiceName,
         unit: $("#unit").val(),
-        date: $("#datePicker").val(),
+        date: $.date($("#datePicker").val()),
         company: $("#company").val(),
         hours: $("#hours").val(),
         technician: $("#technician").val(),
 
-        report_list: pdfText,
+        report_list1 : boxNames[0]  + "(" + ($("#ctrl1").val() == "" ? "" : "") + ")",
+        report_list2 : boxNames[1]  + "(" + ($("#ctrl2").val() == "" ? "" : "") + ")",
+        report_list3 : boxNames[2]  + "(" + ($("#ctrl3").val() == "" ? "" : "") + ")",
+        report_list4 : boxNames[3]  + "(" + ($("#ctrl4").val() == "" ? "" : "") + ")",
+        report_list5 : boxNames[4]  + "(" + ($("#ctrl5").val() == "" ? "" : "") + ")",
+        report_list6 : boxNames[5]  + "(" + ($("#ctrl6").val() == "" ? "" : "") + ")",
+        report_list7 : boxNames[6]  + "(" + ($("#ctrl7").val() == "" ? "" : "") + ")",
+        report_list8 : boxNames[7]  + "(" + ($("#ctrl8").val() == "" ? "" : "") + ")",
+        report_list9 : boxNames[8]  + "(" + ($("#ctrl9").val() == "" ? "" : "") + ")",
+        report_list10 :boxNames[9]  + "(" + ($("#ctrl10").val() == "" ? "" : "") + ")",
+        report_list11 : boxNames[10]  + "(" + ($("#ctrl11").val() == "" ? "" : "") + ")",
+        report_list12 : boxNames[11]  + "(" + ($("#ctrl12").val() == "" ? "" : "") + ")",
+        report_list13 : boxNames[12]  + "(" + ($("#ctrl13").val() == "" ? "" : "") + ")",
+        report_list14 : boxNames[13]  + "(" + ($("#ctrl14").val() == "" ? "" : "") + ")",
+        report_list15 : boxNames[14]  + "(" + ($("#ctrl15").val() == "" ? "" : "") + ")",
+        report_list16 : boxNames[15]  + "(" + ($("#ctrl16").val() == "" ? "" : "") + ")",
+        report_list17 : boxNames[16]  + "(" + ($("#ctrl17").val() == "" ? "" : "") + ")",
+        report_list18 : boxNames[17]  + "(" + ($("#ctrl18").val() == "" ? "" : "") + ")",
+        report_list19 : boxNames[18]  + "(" + ($("#ctrl19").val() == "" ? "" : "") + ")",
+        report_list20 : boxNames[19]  + "(" + ($("#ctrl20").val() == "" ? "" : "") + ")",
 
-    });
+        extra_list: extraText
+    })
 
+    // location.reload()
 }
