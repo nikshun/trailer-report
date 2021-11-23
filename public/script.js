@@ -93,7 +93,7 @@ const ReRenderBoxes = () => {
                     <input type="text" class="form-control" id="ctrl` + i + `">
                     
                     <div class="form-check" id="exampleCheckID4">
-                    <input type="checkbox" class="form-check-input checkbox">
+                    <input type="checkbox" class="form-check-input checkbox" id="checkbox` + i + `">
                     <label class="form-check-label" ">Used</label>
                 </div>
                 
@@ -270,39 +270,53 @@ async function generatePDF() {
         i++
     });
 
+    var selectedTypes = ""
+    if (document.getElementById("Carriercheck").checked) {
+        selectedTypes += " Carrier"
+    }
+    if (document.getElementById("ThermoKingcheck").checked) {
+        selectedTypes += " ThermoKing"
+    }
+    if (document.getElementById("Othercheck").checked) {
+        selectedTypes += " Other"
+    }
+    if (selectedTypes == "") {
+        selectedTypes = " none"
+    }
+
     var extraText = ""
 
-    if ($("#exampleCheck11").val()) {
+    if (document.getElementById("exampleCheck11").checked) {
         extraText += "Brake Adjust, "
     }
-    if ($("#exampleCheck22").val()) {
+    if (document.getElementById("exampleCheck22").checked) { 
         extraText += "Clean Inside, "
     }
-    if ($("#exampleCheck33").val()) {
+    if (document.getElementById("exampleCheck33").checked) { 
         extraText += "Grease, "
     }
-    if ($("#exampleCheck4").val()) {
+    if (document.getElementById("exampleCheck4").checked) { 
         extraText += "Bearings Adjusted, "
     }
-    if ($("#exampleCheck5").val()) {
+    if (document.getElementById("exampleCheck5").checked) { 
         extraText += "Tire Pressures, "
     }
-    if ($("#exampleCheck6").val()) {
+    if (document.getElementById("exampleCheck6").checked) { 
         extraText += "Brake System, "
     }
-    if ($("#exampleCheck7").val()) {
+    if (document.getElementById("exampleCheck7").checked) { 
         extraText += "Lights, "
     }
-    if ($("#exampleCheck8").val()) {
+    if (document.getElementById("exampleCheck8").checked) { 
         extraText += "Air Leaks, "
     }
-    if ($("#exampleCheck9").val()) {
+    if (document.getElementById("exampleCheck9").checked) {
         extraText += "Suspension, "
     }
-    if ($("#exampleCheck99").val()) {
+    if (document.getElementById("exampleCheck99").checked) {
         extraText += "Seals, "
     }
-    if ($("#exampleCheck399").val()) {
+    if (document.getElementById("exampleCheck399").checked) {
         extraText += "Tires "
     }
     
@@ -321,26 +335,28 @@ async function generatePDF() {
         hours: $("#hours").val(),
         technician: $("#technician").val(),
 
-        report_list1 : boxNames[0]  + "(" + ($("#ctrl1").val() == "" ? "" : "") + ")",
-        report_list2 : boxNames[1]  + "(" + ($("#ctrl2").val() == "" ? "" : "") + ")",
-        report_list3 : boxNames[2]  + "(" + ($("#ctrl3").val() == "" ? "" : "") + ")",
-        report_list4 : boxNames[3]  + "(" + ($("#ctrl4").val() == "" ? "" : "") + ")",
-        report_list5 : boxNames[4]  + "(" + ($("#ctrl5").val() == "" ? "" : "") + ")",
-        report_list6 : boxNames[5]  + "(" + ($("#ctrl6").val() == "" ? "" : "") + ")",
-        report_list7 : boxNames[6]  + "(" + ($("#ctrl7").val() == "" ? "" : "") + ")",
-        report_list8 : boxNames[7]  + "(" + ($("#ctrl8").val() == "" ? "" : "") + ")",
-        report_list9 : boxNames[8]  + "(" + ($("#ctrl9").val() == "" ? "" : "") + ")",
-        report_list10 :boxNames[9]  + "(" + ($("#ctrl10").val() == "" ? "" : "") + ")",
-        report_list11 : boxNames[10]  + "(" + ($("#ctrl11").val() == "" ? "" : "") + ")",
-        report_list12 : boxNames[11]  + "(" + ($("#ctrl12").val() == "" ? "" : "") + ")",
-        report_list13 : boxNames[12]  + "(" + ($("#ctrl13").val() == "" ? "" : "") + ")",
-        report_list14 : boxNames[13]  + "(" + ($("#ctrl14").val() == "" ? "" : "") + ")",
-        report_list15 : boxNames[14]  + "(" + ($("#ctrl15").val() == "" ? "" : "") + ")",
-        report_list16 : boxNames[15]  + "(" + ($("#ctrl16").val() == "" ? "" : "") + ")",
-        report_list17 : boxNames[16]  + "(" + ($("#ctrl17").val() == "" ? "" : "") + ")",
-        report_list18 : boxNames[17]  + "(" + ($("#ctrl18").val() == "" ? "" : "") + ")",
-        report_list19 : boxNames[18]  + "(" + ($("#ctrl19").val() == "" ? "" : "") + ")",
-        report_list20 : boxNames[19]  + "(" + ($("#ctrl20").val() == "" ? "" : "") + ")",
+        selected_types: selectedTypes,
+
+        report_list1 : (boxNames[0] == undefined ? "" : boxNames[0]  + " (" + ($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val()) + ") " + (document.getElementById("checkbox1") != undefined ? (document.getElementById("checkbox1").checked ? " - Used" : "") : "")),
+        report_list2 : (boxNames[1] == undefined ? "" : boxNames[1]  + " (" + ($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val()) + ") " + (document.getElementById("checkbox2") != undefined ? (document.getElementById("checkbox2").checked ? " - Used" : "") : "")),
+        report_list3 : (boxNames[2] == undefined ? "" : boxNames[2]  + " (" + ($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val()) + ") " + (document.getElementById("checkbox3") != undefined ? (document.getElementById("checkbox3").checked ? " - Used" : "") : "")),
+        report_list4 : (boxNames[3] == undefined ? "" : boxNames[3]  + " (" + ($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val()) + ") " + (document.getElementById("checkbox4") != undefined ? (document.getElementById("checkbox4").checked ? " - Used" : "") : "")),
+        report_list5 : (boxNames[4] == undefined ? "" : boxNames[4]  + " (" + ($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val()) + ") " + (document.getElementById("checkbox5") != undefined ? (document.getElementById("checkbox5").checked ? " - Used" : "") : "")),
+        report_list6 : (boxNames[5] == undefined ? "" : boxNames[5]  + " (" + ($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val()) + ") " + (document.getElementById("checkbox6") != undefined ? (document.getElementById("checkbox6").checked ? " - Used" : "") : "")),
+        report_list7 : (boxNames[6] == undefined ? "" : boxNames[6]  + " (" + ($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val()) + ") " + (document.getElementById("checkbox7") != undefined ? (document.getElementById("checkbox7").checked ? " - Used" : "") : "")),
+        report_list8 : (boxNames[7] == undefined ? "" : boxNames[7]  + " (" + ($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val()) + ") " + (document.getElementById("checkbox8") != undefined ? (document.getElementById("checkbox8").checked ? " - Used" : "") : "")),
+        report_list9 : (boxNames[8] == undefined ? "" : boxNames[8]  + " (" + ($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val()) + ") " + (document.getElementById("checkbox9") != undefined ? (document.getElementById("checkbox9").checked ? " - Used" : "") : "")),
+        report_list10 : (boxNames[9] == undefined ? "" : boxNames[9]  + " (" + ($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val()) + ") " + (document.getElementById("checkbox10") != undefined ? (document.getElementById("checkbox10").checked ? " - Used" : "") : "")),
+        report_list11 : (boxNames[10] == undefined ? "" : boxNames[10]  + " (" + ($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val()) + ") " + (document.getElementById("checkbox11") != undefined ? (document.getElementById("checkbox11").checked ? " - Used" : "") : "")),
+        report_list12 : (boxNames[11] == undefined ? "" : boxNames[11]  + " (" + ($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val()) + ") " + (document.getElementById("checkbox12") != undefined ? (document.getElementById("checkbox12").checked ? " - Used" : "") : "")),
+        report_list13 : (boxNames[12] == undefined ? "" : boxNames[12]  + " (" + ($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val()) + ") " + (document.getElementById("checkbox13") != undefined ? (document.getElementById("checkbox13").checked ? " - Used" : "") : "")),
+        report_list14 : (boxNames[13] == undefined ? "" : boxNames[13]  + " (" + ($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val()) + ") " + (document.getElementById("checkbox14") != undefined ? (document.getElementById("checkbox14").checked ? " - Used" : "") : "")),
+        report_list15 : (boxNames[14] == undefined ? "" : boxNames[14]  + " (" + ($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val()) + ") " + (document.getElementById("checkbox15") != undefined ? (document.getElementById("checkbox15").checked ? " - Used" : "") : "")),
+        report_list16 : (boxNames[15] == undefined ? "" : boxNames[15]  + " (" + ($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val()) + ") " + (document.getElementById("checkbox16") != undefined ? (document.getElementById("checkbox16").checked ? " - Used" : "") : "")),
+        report_list17 : (boxNames[16] == undefined ? "" : boxNames[16]  + " (" + ($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val()) + ") " + (document.getElementById("checkbox17") != undefined ? (document.getElementById("checkbox17").checked ? " - Used" : "") : "")),
+        report_list18 : (boxNames[17] == undefined ? "" : boxNames[17]  + " (" + ($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val()) + ") " + (document.getElementById("checkbox18") != undefined ? (document.getElementById("checkbox18").checked ? " - Used" : "") : "")),
+        report_list19 : (boxNames[18] == undefined ? "" : boxNames[18]  + " (" + ($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val()) + ") " + (document.getElementById("checkbox19") != undefined ? (document.getElementById("checkbox19").checked ? " - Used" : "") : "")),
+        report_list20 : (boxNames[19] == undefined ? "" : boxNames[19]  + " (" + ($("#ctrl20").val() == undefined ? "" : $("#ctrl20").val()) + ") " + (document.getElementById("checkbox20") != undefined ? (document.getElementById("checkbox20").checked ? " - Used" : "") : "")),
 
         extra_list: extraText
     })
