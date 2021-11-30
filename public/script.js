@@ -1,6 +1,8 @@
 var choiceName = ""
 
 var boxNames = []
+var boxChecks = []
+var boxComments = []
 
 $( document ).ready(function() {
     $("#list-group").hide();
@@ -77,6 +79,31 @@ const DeleteBoxOnClick = (num) => {
     // boxNames = boxNames.filter(item => boxNames.indexOf(item) != num)
     boxNames.splice(num, 1)
     ReRenderBoxes()
+}
+
+const ReReadBoxes = () => {
+    boxComments = []
+    boxComments.push(boxNames[0] == undefined ? "" : boxNames[0]  + " (" + ($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val()) + ") " + (document.getElementById("checkbox1") != undefined ? (document.getElementById("checkbox1").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[1] == undefined ? "" : boxNames[1]  + " (" + ($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val()) + ") " + (document.getElementById("checkbox2") != undefined ? (document.getElementById("checkbox2").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[2] == undefined ? "" : boxNames[2]  + " (" + ($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val()) + ") " + (document.getElementById("checkbox3") != undefined ? (document.getElementById("checkbox3").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[3] == undefined ? "" : boxNames[3]  + " (" + ($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val()) + ") " + (document.getElementById("checkbox4") != undefined ? (document.getElementById("checkbox4").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[4] == undefined ? "" : boxNames[4]  + " (" + ($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val()) + ") " + (document.getElementById("checkbox5") != undefined ? (document.getElementById("checkbox5").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[5] == undefined ? "" : boxNames[5]  + " (" + ($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val()) + ") " + (document.getElementById("checkbox6") != undefined ? (document.getElementById("checkbox6").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[6] == undefined ? "" : boxNames[6]  + " (" + ($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val()) + ") " + (document.getElementById("checkbox7") != undefined ? (document.getElementById("checkbox7").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[7] == undefined ? "" : boxNames[7]  + " (" + ($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val()) + ") " + (document.getElementById("checkbox8") != undefined ? (document.getElementById("checkbox8").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[8] == undefined ? "" : boxNames[8]  + " (" + ($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val()) + ") " + (document.getElementById("checkbox9") != undefined ? (document.getElementById("checkbox9").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[9] == undefined ? "" : boxNames[9]  + " (" + ($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val()) + ") " + (document.getElementById("checkbox10") != undefined ? (document.getElementById("checkbox10").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[10] == undefined ? "" : boxNames[10]  + " (" + ($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val()) + ") " + (document.getElementById("checkbox11") != undefined ? (document.getElementById("checkbox11").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[11] == undefined ? "" : boxNames[11]  + " (" + ($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val()) + ") " + (document.getElementById("checkbox12") != undefined ? (document.getElementById("checkbox12").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[12] == undefined ? "" : boxNames[12]  + " (" + ($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val()) + ") " + (document.getElementById("checkbox13") != undefined ? (document.getElementById("checkbox13").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[13] == undefined ? "" : boxNames[13]  + " (" + ($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val()) + ") " + (document.getElementById("checkbox14") != undefined ? (document.getElementById("checkbox14").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[14] == undefined ? "" : boxNames[14]  + " (" + ($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val()) + ") " + (document.getElementById("checkbox15") != undefined ? (document.getElementById("checkbox15").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[15] == undefined ? "" : boxNames[15]  + " (" + ($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val()) + ") " + (document.getElementById("checkbox16") != undefined ? (document.getElementById("checkbox16").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[16] == undefined ? "" : boxNames[16]  + " (" + ($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val()) + ") " + (document.getElementById("checkbox17") != undefined ? (document.getElementById("checkbox17").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[17] == undefined ? "" : boxNames[17]  + " (" + ($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val()) + ") " + (document.getElementById("checkbox18") != undefined ? (document.getElementById("checkbox18").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[18] == undefined ? "" : boxNames[18]  + " (" + ($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val()) + ") " + (document.getElementById("checkbox19") != undefined ? (document.getElementById("checkbox19").checked ? " - Used" : "") : ""))
+    boxComments.push(boxNames[19] == undefined ? "" : boxNames[19]  + " (" + ($("#ctrl20").val() == undefined ? "" : $("#ctrl20").val()) + ") " + (document.getElementById("checkbox20") != undefined ? (document.getElementById("checkbox20").checked ? " - Used" : "") : ""))
+
 }
 
 const ReRenderBoxes = () => {
@@ -361,5 +388,4 @@ async function generatePDF() {
         extra_list: extraText
     })
 
-    location.reload()
 }
