@@ -5,6 +5,7 @@ var boxChecks = []
 var boxComments = []
 
 $( document ).ready(function() {
+    $("#pageThreeHide").hide();
     $("#list-group").hide();
 });
 
@@ -66,44 +67,53 @@ const NextOnClick = (num) => {
     }
 }
 
-const ListGroupItemOnClick = (name) => {
-    $("#list-group").hide();
+const ListGroupItemOnClick = (name) => { // ADD ITEM CREATE
+    $("#pageThreeHide").hide();
     $(".dropdown-buttons").fadeIn(200);
+    $("#list-group").fadeIn(200);
+    ReReadBoxes()
     boxNames.push(name)
     ReRenderBoxes()
 }
 
+const ListGroupItemHIDEOnClick = (name) => { 
+    $("#pageThreeHide").hide();
+    $(".dropdown-buttons").fadeIn(200);
+    $("#list-group").hide()
+}
+
 const DeleteBoxOnClick = (num) => {
-    $("#list-group").hide();
+    ReReadBoxes()
+    $("#pageThreeHide").hide();
     $(".dropdown-buttons").fadeIn(200);
     // boxNames = boxNames.filter(item => boxNames.indexOf(item) != num)
+    boxComments.splice(num, 1)
     boxNames.splice(num, 1)
     ReRenderBoxes()
 }
 
 const ReReadBoxes = () => {
     boxComments = []
-    boxComments.push(boxNames[0] == undefined ? "" : boxNames[0]  + " (" + ($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val()) + ") " + (document.getElementById("checkbox1") != undefined ? (document.getElementById("checkbox1").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[1] == undefined ? "" : boxNames[1]  + " (" + ($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val()) + ") " + (document.getElementById("checkbox2") != undefined ? (document.getElementById("checkbox2").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[2] == undefined ? "" : boxNames[2]  + " (" + ($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val()) + ") " + (document.getElementById("checkbox3") != undefined ? (document.getElementById("checkbox3").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[3] == undefined ? "" : boxNames[3]  + " (" + ($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val()) + ") " + (document.getElementById("checkbox4") != undefined ? (document.getElementById("checkbox4").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[4] == undefined ? "" : boxNames[4]  + " (" + ($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val()) + ") " + (document.getElementById("checkbox5") != undefined ? (document.getElementById("checkbox5").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[5] == undefined ? "" : boxNames[5]  + " (" + ($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val()) + ") " + (document.getElementById("checkbox6") != undefined ? (document.getElementById("checkbox6").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[6] == undefined ? "" : boxNames[6]  + " (" + ($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val()) + ") " + (document.getElementById("checkbox7") != undefined ? (document.getElementById("checkbox7").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[7] == undefined ? "" : boxNames[7]  + " (" + ($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val()) + ") " + (document.getElementById("checkbox8") != undefined ? (document.getElementById("checkbox8").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[8] == undefined ? "" : boxNames[8]  + " (" + ($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val()) + ") " + (document.getElementById("checkbox9") != undefined ? (document.getElementById("checkbox9").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[9] == undefined ? "" : boxNames[9]  + " (" + ($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val()) + ") " + (document.getElementById("checkbox10") != undefined ? (document.getElementById("checkbox10").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[10] == undefined ? "" : boxNames[10]  + " (" + ($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val()) + ") " + (document.getElementById("checkbox11") != undefined ? (document.getElementById("checkbox11").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[11] == undefined ? "" : boxNames[11]  + " (" + ($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val()) + ") " + (document.getElementById("checkbox12") != undefined ? (document.getElementById("checkbox12").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[12] == undefined ? "" : boxNames[12]  + " (" + ($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val()) + ") " + (document.getElementById("checkbox13") != undefined ? (document.getElementById("checkbox13").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[13] == undefined ? "" : boxNames[13]  + " (" + ($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val()) + ") " + (document.getElementById("checkbox14") != undefined ? (document.getElementById("checkbox14").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[14] == undefined ? "" : boxNames[14]  + " (" + ($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val()) + ") " + (document.getElementById("checkbox15") != undefined ? (document.getElementById("checkbox15").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[15] == undefined ? "" : boxNames[15]  + " (" + ($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val()) + ") " + (document.getElementById("checkbox16") != undefined ? (document.getElementById("checkbox16").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[16] == undefined ? "" : boxNames[16]  + " (" + ($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val()) + ") " + (document.getElementById("checkbox17") != undefined ? (document.getElementById("checkbox17").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[17] == undefined ? "" : boxNames[17]  + " (" + ($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val()) + ") " + (document.getElementById("checkbox18") != undefined ? (document.getElementById("checkbox18").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[18] == undefined ? "" : boxNames[18]  + " (" + ($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val()) + ") " + (document.getElementById("checkbox19") != undefined ? (document.getElementById("checkbox19").checked ? " - Used" : "") : ""))
-    boxComments.push(boxNames[19] == undefined ? "" : boxNames[19]  + " (" + ($("#ctrl20").val() == undefined ? "" : $("#ctrl20").val()) + ") " + (document.getElementById("checkbox20") != undefined ? (document.getElementById("checkbox20").checked ? " - Used" : "") : ""))
-
+    boxComments.push($("#ctrl0").val() == undefined ? "" : $("#ctrl0").val())
+    boxComments.push($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val())
+    boxComments.push($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val())
+    boxComments.push($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val())
+    boxComments.push($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val())
+    boxComments.push($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val())
+    boxComments.push($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val())
+    boxComments.push($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val())
+    boxComments.push($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val())
+    boxComments.push($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val())
+    boxComments.push($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val())
+    boxComments.push($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val())
+    boxComments.push($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val())
+    boxComments.push($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val())
+    boxComments.push($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val())
+    boxComments.push($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val())
+    boxComments.push($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val())
+    boxComments.push($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val())
+    boxComments.push($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val())
+    boxComments.push($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val())
 }
 
 const ReRenderBoxes = () => {
@@ -111,13 +121,14 @@ const ReRenderBoxes = () => {
     var i = 0
     boxNames.forEach((nameStr)=>{
         if(nameStr.slice(-1) == "#"){
+            console.log(boxComments[i])
             str += 
             `
                 <div class="trailer-report-box">
                     <h6 style="float: left;">
                     ` + nameStr + `
                     </h6>
-                    <input type="text" class="form-control" id="ctrl` + i + `">
+                    <input type="text" value="` + boxComments[i] + `" class="form-control" id="ctrl` + i + `">
                     
                     <div class="form-check" id="exampleCheckID4">
                     <input type="checkbox" class="form-check-input checkbox" id="checkbox` + i + `">
@@ -141,7 +152,7 @@ const ReRenderBoxes = () => {
                     <h6 style="float: left;">
                     ` + nameStr + `
                     </h6>
-                    <input type="text" class="form-control" id="ctrl` + i + `">
+                    <input type="text" class="form-control" value="` + boxComments[i] + `"  id="ctrl` + i + `">
                     
                     <div class="form-check" id="exampleCheckID4">
                 </div>
@@ -160,7 +171,8 @@ const ReRenderBoxes = () => {
         i++
     })
     document.getElementById("right-sidebar").innerHTML = str
-    $("#right-sidebar").fadeIn(200);
+    $("#right-sidebar").fadeIn(200)
+    $("#list-group").hide()
 }
 
 
@@ -266,6 +278,7 @@ const DropdownButtonOnClick = (name) => {
     }
 
     $(".dropdown-buttons").hide();
+    $("#pageThreeHide").fadeIn(200);
     $("#list-group").fadeIn(200);
 }
 
@@ -299,13 +312,13 @@ async function generatePDF() {
 
     var selectedTypes = ""
     if (document.getElementById("Carriercheck").checked) {
-        selectedTypes += " Carrier"
+        selectedTypes += " Carrier, "
     }
     if (document.getElementById("ThermoKingcheck").checked) {
-        selectedTypes += " ThermoKing"
+        selectedTypes += " ThermoKing, "
     }
     if (document.getElementById("Othercheck").checked) {
-        selectedTypes += " Other"
+        selectedTypes += " Other, "
     }
     if (selectedTypes == "") {
         selectedTypes = " none"
@@ -364,26 +377,26 @@ async function generatePDF() {
 
         selected_types: selectedTypes,
 
-        report_list1 : (boxNames[0] == undefined ? "" : boxNames[0]  + " (" + ($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val()) + ") " + (document.getElementById("checkbox1") != undefined ? (document.getElementById("checkbox1").checked ? " - Used" : "") : "")),
-        report_list2 : (boxNames[1] == undefined ? "" : boxNames[1]  + " (" + ($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val()) + ") " + (document.getElementById("checkbox2") != undefined ? (document.getElementById("checkbox2").checked ? " - Used" : "") : "")),
-        report_list3 : (boxNames[2] == undefined ? "" : boxNames[2]  + " (" + ($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val()) + ") " + (document.getElementById("checkbox3") != undefined ? (document.getElementById("checkbox3").checked ? " - Used" : "") : "")),
-        report_list4 : (boxNames[3] == undefined ? "" : boxNames[3]  + " (" + ($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val()) + ") " + (document.getElementById("checkbox4") != undefined ? (document.getElementById("checkbox4").checked ? " - Used" : "") : "")),
-        report_list5 : (boxNames[4] == undefined ? "" : boxNames[4]  + " (" + ($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val()) + ") " + (document.getElementById("checkbox5") != undefined ? (document.getElementById("checkbox5").checked ? " - Used" : "") : "")),
-        report_list6 : (boxNames[5] == undefined ? "" : boxNames[5]  + " (" + ($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val()) + ") " + (document.getElementById("checkbox6") != undefined ? (document.getElementById("checkbox6").checked ? " - Used" : "") : "")),
-        report_list7 : (boxNames[6] == undefined ? "" : boxNames[6]  + " (" + ($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val()) + ") " + (document.getElementById("checkbox7") != undefined ? (document.getElementById("checkbox7").checked ? " - Used" : "") : "")),
-        report_list8 : (boxNames[7] == undefined ? "" : boxNames[7]  + " (" + ($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val()) + ") " + (document.getElementById("checkbox8") != undefined ? (document.getElementById("checkbox8").checked ? " - Used" : "") : "")),
-        report_list9 : (boxNames[8] == undefined ? "" : boxNames[8]  + " (" + ($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val()) + ") " + (document.getElementById("checkbox9") != undefined ? (document.getElementById("checkbox9").checked ? " - Used" : "") : "")),
-        report_list10 : (boxNames[9] == undefined ? "" : boxNames[9]  + " (" + ($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val()) + ") " + (document.getElementById("checkbox10") != undefined ? (document.getElementById("checkbox10").checked ? " - Used" : "") : "")),
-        report_list11 : (boxNames[10] == undefined ? "" : boxNames[10]  + " (" + ($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val()) + ") " + (document.getElementById("checkbox11") != undefined ? (document.getElementById("checkbox11").checked ? " - Used" : "") : "")),
-        report_list12 : (boxNames[11] == undefined ? "" : boxNames[11]  + " (" + ($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val()) + ") " + (document.getElementById("checkbox12") != undefined ? (document.getElementById("checkbox12").checked ? " - Used" : "") : "")),
-        report_list13 : (boxNames[12] == undefined ? "" : boxNames[12]  + " (" + ($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val()) + ") " + (document.getElementById("checkbox13") != undefined ? (document.getElementById("checkbox13").checked ? " - Used" : "") : "")),
-        report_list14 : (boxNames[13] == undefined ? "" : boxNames[13]  + " (" + ($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val()) + ") " + (document.getElementById("checkbox14") != undefined ? (document.getElementById("checkbox14").checked ? " - Used" : "") : "")),
-        report_list15 : (boxNames[14] == undefined ? "" : boxNames[14]  + " (" + ($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val()) + ") " + (document.getElementById("checkbox15") != undefined ? (document.getElementById("checkbox15").checked ? " - Used" : "") : "")),
-        report_list16 : (boxNames[15] == undefined ? "" : boxNames[15]  + " (" + ($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val()) + ") " + (document.getElementById("checkbox16") != undefined ? (document.getElementById("checkbox16").checked ? " - Used" : "") : "")),
-        report_list17 : (boxNames[16] == undefined ? "" : boxNames[16]  + " (" + ($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val()) + ") " + (document.getElementById("checkbox17") != undefined ? (document.getElementById("checkbox17").checked ? " - Used" : "") : "")),
-        report_list18 : (boxNames[17] == undefined ? "" : boxNames[17]  + " (" + ($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val()) + ") " + (document.getElementById("checkbox18") != undefined ? (document.getElementById("checkbox18").checked ? " - Used" : "") : "")),
-        report_list19 : (boxNames[18] == undefined ? "" : boxNames[18]  + " (" + ($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val()) + ") " + (document.getElementById("checkbox19") != undefined ? (document.getElementById("checkbox19").checked ? " - Used" : "") : "")),
-        report_list20 : (boxNames[19] == undefined ? "" : boxNames[19]  + " (" + ($("#ctrl20").val() == undefined ? "" : $("#ctrl20").val()) + ") " + (document.getElementById("checkbox20") != undefined ? (document.getElementById("checkbox20").checked ? " - Used" : "") : "")),
+        report_list1 : (boxNames[0] == undefined ? "" : boxNames[0]  + " (" + ($("#ctrl0").val() == undefined ? "" : $("#ctrl0").val()) + ") " + (document.getElementById("checkbox0") != undefined ? (document.getElementById("checkbox0").checked ? " - Used" : "") : "")),
+        report_list2 : (boxNames[1] == undefined ? "" : boxNames[1]  + " (" + ($("#ctrl1").val() == undefined ? "" : $("#ctrl1").val()) + ") " + (document.getElementById("checkbox1") != undefined ? (document.getElementById("checkbox1").checked ? " - Used" : "") : "")),
+        report_list3 : (boxNames[2] == undefined ? "" : boxNames[2]  + " (" + ($("#ctrl2").val() == undefined ? "" : $("#ctrl2").val()) + ") " + (document.getElementById("checkbox2") != undefined ? (document.getElementById("checkbox2").checked ? " - Used" : "") : "")),
+        report_list4 : (boxNames[3] == undefined ? "" : boxNames[3]  + " (" + ($("#ctrl3").val() == undefined ? "" : $("#ctrl3").val()) + ") " + (document.getElementById("checkbox3") != undefined ? (document.getElementById("checkbox3").checked ? " - Used" : "") : "")),
+        report_list5 : (boxNames[4] == undefined ? "" : boxNames[4]  + " (" + ($("#ctrl4").val() == undefined ? "" : $("#ctrl4").val()) + ") " + (document.getElementById("checkbox4") != undefined ? (document.getElementById("checkbox4").checked ? " - Used" : "") : "")),
+        report_list6 : (boxNames[5] == undefined ? "" : boxNames[5]  + " (" + ($("#ctrl5").val() == undefined ? "" : $("#ctrl5").val()) + ") " + (document.getElementById("checkbox5") != undefined ? (document.getElementById("checkbox5").checked ? " - Used" : "") : "")),
+        report_list7 : (boxNames[6] == undefined ? "" : boxNames[6]  + " (" + ($("#ctrl6").val() == undefined ? "" : $("#ctrl6").val()) + ") " + (document.getElementById("checkbox6") != undefined ? (document.getElementById("checkbox6").checked ? " - Used" : "") : "")),
+        report_list8 : (boxNames[7] == undefined ? "" : boxNames[7]  + " (" + ($("#ctrl7").val() == undefined ? "" : $("#ctrl7").val()) + ") " + (document.getElementById("checkbox7") != undefined ? (document.getElementById("checkbox7").checked ? " - Used" : "") : "")),
+        report_list9 : (boxNames[8] == undefined ? "" : boxNames[8]  + " (" + ($("#ctrl8").val() == undefined ? "" : $("#ctrl8").val()) + ") " + (document.getElementById("checkbox8") != undefined ? (document.getElementById("checkbox8").checked ? " - Used" : "") : "")),
+        report_list10 : (boxNames[9] == undefined ? "" : boxNames[9]  + " (" + ($("#ctrl9").val() == undefined ? "" : $("#ctrl9").val()) + ") " + (document.getElementById("checkbox9") != undefined ? (document.getElementById("checkbox9").checked ? " - Used" : "") : "")),
+        report_list11 : (boxNames[10] == undefined ? "" : boxNames[10]  + " (" + ($("#ctrl10").val() == undefined ? "" : $("#ctrl10").val()) + ") " + (document.getElementById("checkbox10") != undefined ? (document.getElementById("checkbox10").checked ? " - Used" : "") : "")),
+        report_list12 : (boxNames[11] == undefined ? "" : boxNames[11]  + " (" + ($("#ctrl11").val() == undefined ? "" : $("#ctrl11").val()) + ") " + (document.getElementById("checkbox11") != undefined ? (document.getElementById("checkbox11").checked ? " - Used" : "") : "")),
+        report_list13 : (boxNames[12] == undefined ? "" : boxNames[12]  + " (" + ($("#ctrl12").val() == undefined ? "" : $("#ctrl12").val()) + ") " + (document.getElementById("checkbox12") != undefined ? (document.getElementById("checkbox12").checked ? " - Used" : "") : "")),
+        report_list14 : (boxNames[13] == undefined ? "" : boxNames[13]  + " (" + ($("#ctrl13").val() == undefined ? "" : $("#ctrl13").val()) + ") " + (document.getElementById("checkbox13") != undefined ? (document.getElementById("checkbox13").checked ? " - Used" : "") : "")),
+        report_list15 : (boxNames[14] == undefined ? "" : boxNames[14]  + " (" + ($("#ctrl14").val() == undefined ? "" : $("#ctrl14").val()) + ") " + (document.getElementById("checkbox14") != undefined ? (document.getElementById("checkbox14").checked ? " - Used" : "") : "")),
+        report_list16 : (boxNames[15] == undefined ? "" : boxNames[15]  + " (" + ($("#ctrl15").val() == undefined ? "" : $("#ctrl15").val()) + ") " + (document.getElementById("checkbox15") != undefined ? (document.getElementById("checkbox15").checked ? " - Used" : "") : "")),
+        report_list17 : (boxNames[16] == undefined ? "" : boxNames[16]  + " (" + ($("#ctrl16").val() == undefined ? "" : $("#ctrl16").val()) + ") " + (document.getElementById("checkbox16") != undefined ? (document.getElementById("checkbox16").checked ? " - Used" : "") : "")),
+        report_list18 : (boxNames[17] == undefined ? "" : boxNames[17]  + " (" + ($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val()) + ") " + (document.getElementById("checkbox17") != undefined ? (document.getElementById("checkbox17").checked ? " - Used" : "") : "")),
+        report_list19 : (boxNames[18] == undefined ? "" : boxNames[18]  + " (" + ($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val()) + ") " + (document.getElementById("checkbox18") != undefined ? (document.getElementById("checkbox18").checked ? " - Used" : "") : "")),
+        report_list20 : (boxNames[19] == undefined ? "" : boxNames[19]  + " (" + ($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val()) + ") " + (document.getElementById("checkbox19") != undefined ? (document.getElementById("checkbox19").checked ? " - Used" : "") : "")),
 
         extra_list: extraText
     })
