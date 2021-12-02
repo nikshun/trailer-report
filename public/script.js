@@ -400,5 +400,5 @@ async function generatePDF() {
 
         extra_list: extraText
     })
-
+    location.reload()
 }
