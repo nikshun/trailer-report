@@ -94,7 +94,6 @@ const OnOtherSelect = () => {
 
 const DeleteBoxOnClick = (num) => {
     ReReadBoxes()
-    console.log(boxChecks)
     $("#pageThreeHide").hide();
     $(".dropdown-buttons").fadeIn(200);
     // boxNames = boxNames.filter(item => boxNames.indexOf(item) != num)
@@ -149,11 +148,6 @@ const ReReadBoxes = () => {
     boxChecks.push($("#checkbox17") == undefined ? false : $("#checkbox17").is(":checked"))
     boxChecks.push($("#checkbox18") == undefined ? false : $("#checkbox18").is(":checked"))
     boxChecks.push($("#checkbox19") == undefined ? false : $("#checkbox19").is(":checked"))
-    alert(boxChecks[0])
-    alert(boxChecks[1])
-    alert(boxChecks[2])
-    alert(boxChecks[3])
-    
 }
 
 const ReRenderBoxes = () => {
