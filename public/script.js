@@ -7,6 +7,7 @@ var boxComments = []
 $( document ).ready(function() {
     $("#pageThreeHide").hide();
     $("#list-group").hide();
+    OnOtherSelect()
 });
 
 const TruckOnClick = () => {
@@ -82,14 +83,26 @@ const ListGroupItemHIDEOnClick = (name) => {
     $("#list-group").hide()
 }
 
+const OnOtherSelect = () => { 
+    if ($("#tech-select").val() == "Other") {
+        $("#other").fadeIn(200);
+    }
+    else{
+        $("#other").hide();
+    }
+}
+
 const DeleteBoxOnClick = (num) => {
     ReReadBoxes()
+    console.log(boxChecks)
     $("#pageThreeHide").hide();
     $(".dropdown-buttons").fadeIn(200);
     // boxNames = boxNames.filter(item => boxNames.indexOf(item) != num)
     boxComments.splice(num, 1)
     boxNames.splice(num, 1)
+    boxChecks.splice(num, 1)
     ReRenderBoxes()
+    
 }
 
 const ReReadBoxes = () => {
@@ -114,6 +127,33 @@ const ReReadBoxes = () => {
     boxComments.push($("#ctrl17").val() == undefined ? "" : $("#ctrl17").val())
     boxComments.push($("#ctrl18").val() == undefined ? "" : $("#ctrl18").val())
     boxComments.push($("#ctrl19").val() == undefined ? "" : $("#ctrl19").val())
+    
+    boxChecks = []
+    boxChecks.push($("#checkbox0") == undefined ? false : $("#checkbox0").is(":checked"))
+    boxChecks.push($("#checkbox1") == undefined ? false : $("#checkbox1").is(":checked"))
+    boxChecks.push($("#checkbox2") == undefined ? false : $("#checkbox2").is(":checked"))
+    boxChecks.push($("#checkbox3") == undefined ? false : $("#checkbox3").is(":checked"))
+    boxChecks.push($("#checkbox4") == undefined ? false : $("#checkbox4").is(":checked"))
+    boxChecks.push($("#checkbox5") == undefined ? false : $("#checkbox5").is(":checked"))
+    boxChecks.push($("#checkbox6") == undefined ? false : $("#checkbox6").is(":checked"))
+    boxChecks.push($("#checkbox7") == undefined ? false : $("#checkbox7").is(":checked"))
+    boxChecks.push($("#checkbox8") == undefined ? false : $("#checkbox8").is(":checked"))
+    boxChecks.push($("#checkbox9") == undefined ? false : $("#checkbox9").is(":checked"))
+    boxChecks.push($("#checkbox10") == undefined ? false : $("#checkbox10").is(":checked"))
+    boxChecks.push($("#checkbox11") == undefined ? false : $("#checkbox11").is(":checked"))
+    boxChecks.push($("#checkbox12") == undefined ? false : $("#checkbox12").is(":checked"))
+    boxChecks.push($("#checkbox13") == undefined ? false : $("#checkbox13").is(":checked"))
+    boxChecks.push($("#checkbox14") == undefined ? false : $("#checkbox14").is(":checked"))
+    boxChecks.push($("#checkbox15") == undefined ? false : $("#checkbox15").is(":checked"))
+    boxChecks.push($("#checkbox16") == undefined ? false : $("#checkbox16").is(":checked"))
+    boxChecks.push($("#checkbox17") == undefined ? false : $("#checkbox17").is(":checked"))
+    boxChecks.push($("#checkbox18") == undefined ? false : $("#checkbox18").is(":checked"))
+    boxChecks.push($("#checkbox19") == undefined ? false : $("#checkbox19").is(":checked"))
+    alert(boxChecks[0])
+    alert(boxChecks[1])
+    alert(boxChecks[2])
+    alert(boxChecks[3])
+    
 }
 
 const ReRenderBoxes = () => {
@@ -121,7 +161,6 @@ const ReRenderBoxes = () => {
     var i = 0
     boxNames.forEach((nameStr)=>{
         if(nameStr.slice(-1) == "#"){
-            console.log(boxComments[i])
             str += 
             `
                 <div class="trailer-report-box">
@@ -131,8 +170,8 @@ const ReRenderBoxes = () => {
                     <input type="text" value="` + boxComments[i] + `" class="form-control" id="ctrl` + i + `">
                     
                     <div class="form-check" id="exampleCheckID4">
-                    <input type="checkbox" class="form-check-input checkbox" id="checkbox` + i + `">
-                    <label class="form-check-label" ">Used</label>
+                    <input type="checkbox" class="form-check-input checkbox" id="checkbox` + i + `"` +  (boxChecks[i] ? " checked" : "") + `>
+                    <label class="form-check-label">Used</label>
                 </div>
                 
                 <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
@@ -155,6 +194,8 @@ const ReRenderBoxes = () => {
                     <input type="text" class="form-control" value="` + boxComments[i] + `"  id="ctrl` + i + `">
                     
                     <div class="form-check" id="exampleCheckID4">
+                    <input hidden type="checkbox" class="form-check-input checkbox" id="checkbox` + i + (boxChecks[i] ? "checked" : "") + `">
+                    <label hidden class="form-check-label">Used</label>
                 </div>
                 
                 <button type="button" style="float: right; margin-top: 10px;" class="btn btn-outline-danger" onclick="DeleteBoxOnClick('` + i + `')">
@@ -373,7 +414,7 @@ async function generatePDF() {
         date: $.date($("#datePicker").val()),
         company: $("#company").val(),
         hours: $("#hours").val(),
-        technician: $("#technician").val(),
+        technician: $("#other").val() == "" ? $("#tech-select").val() : $("#other").val(),
 
         selected_types: selectedTypes,
 

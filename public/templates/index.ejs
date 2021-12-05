@@ -41,7 +41,29 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputEmail1">Technician</label>
-                <input type="text" class="form-control" id="technician" placeholder="">
+                <!-- <input type="text" class="form-control" id="technician" placeholder=""> -->
+
+                <select class="form-control selection" aria-label="Default select example" id="tech-select" onchange="OnOtherSelect()">
+                  <option value="Alexandr">Alexandr</option>
+                  <option value="Serhii">Serhii</option>
+                  <option value="Valentin">Valentin</option>
+                  <option value="Alexandro">Alexandro</option>
+                  <option value="Green">Green</option>
+                  <option value="Joseph">Joseph</option>
+                  <option value="Genaro">Genaro</option>
+                  <option value="Jesus">Jesus</option>
+                  <option value="Juan">Juan</option>
+                  <option value="Andrei">Andrei</option>
+                  <option value="Ion">Ion</option>
+                  <option value="Solomon">Solomon</option>
+                  <option value="Ryan">Ryan</option>
+                  <option value="Other">Other</option>
+                </select>
+
+                <br/>
+                
+                <input type="text" class="form-control" id="other" placeholder="">
+                
             </div>
 
               <div class="form-check">
@@ -135,10 +157,8 @@
               <button type="button" class="btn dropdown-button" onclick="DropdownButtonOnClick('Trailer Repair')">Trailer Repair</button>
             </div>
 
-            
             <div id="list-group"> 
             </div>
-            
             
           </div>
           
