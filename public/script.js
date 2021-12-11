@@ -401,8 +401,8 @@ async function generatePDF() {
     // doc.text(pdfText, 10, 10);
     // doc.save("a.pdf");
 
-    emailjs.init("user_5v0M9R0u5GcR6baxunaZd");
-    emailjs.send("trailers-nik","template_ho4q8cj",{
+    emailjs.init("user_jPipHnCI01kPvoSUpNVBW");
+    emailjs.send("service_sgcklp9","template_9zqjshf", {
         type: choiceName,
         unit: $("#unit").val(),
         date: $.date($("#datePicker").val()),
