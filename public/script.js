@@ -16,6 +16,28 @@ const TruckOnClick = () => {
     $(".third-page").hide();
     $(".third3-page").hide();
     choiceName = "Truck Labourate"
+    document.getElementById("laborate-options").innerHTML = 
+    `
+        <div class="form-check">
+        <input type="checkbox" class="form-check-input checkbox" id="Carriercheck">
+        <label class="form-check-label" for="Carriercheck">Volvo</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input checkbox" id="ThermoKingcheck">
+            <label class="form-check-label" for="ThermoKingcheck">Freight</label>
+        </div>
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input checkbox" id="Othercheck">
+            <label class="form-check-label" for="Othercheck">Other</label>
+        </div>
+    `
+    document.getElementById("truck-specific-fields").innerHTML = 
+    `
+        <div class="form-group">
+            <label for="exampleInputEmail1">Mileage for truck</label>
+            <input type="number" class="form-control" id="truckMileage">
+        </div>
+    `
 }
 
 const TrailerOnClick = () => {
@@ -24,6 +46,28 @@ const TrailerOnClick = () => {
     $(".third3-page").hide();
     $(".second-page").fadeIn(200);
     choiceName = "Trailer Labourate"
+    document.getElementById("laborate-options").innerHTML = 
+    `
+    <div class="form-check">
+    <input type="checkbox" class="form-check-input checkbox" id="Carriercheck">
+    <label class="form-check-label" for="Carriercheck">Carrier</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input checkbox" id="ThermoKingcheck">
+        <label class="form-check-label" for="ThermoKingcheck">Thermo King</label>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input checkbox" id="Othercheck">
+        <label class="form-check-label" for="Othercheck">Other</label>
+    </div>
+    `
+    document.getElementById("truck-specific-fields").innerHTML = 
+    `
+        <div class="form-group">
+            <label for="exampleInputEmail1">Engine hours for trailer</label>
+            <input type="number" class="form-control" id="engineHours">
+        </div>
+    `
 }
 
 const BackOnClick = (num) => {
@@ -271,6 +315,23 @@ const DropdownButtonOnClick = (name) => {
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE ENGINE #')">REPLACE ENGINE #<span style="float: right;">→</span></li>
                 <li class="list-group-item" onclick="ListGroupItemOnClick('REPLACE COMPRESSOR #')">REPLACE COMPRESSOR #<span style="float: right;">→</span></li>
             `
+            if (choiceName == "Truck Labourate") {
+                document.getElementById("list-group").innerHTML += 
+                `
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Coolent leak')">Coolent leak <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Oil leak')">Oil leak <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Air compressor')">Air compressor <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('A/C compressor')">A/C compressor <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('EGR')">EGR <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('DPF')">DPF <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Clutch')">Clutch <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Exhaust')">Exhaust <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Air charger system')">Air charger system <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Fuel system')">Fuel system <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Power steering system')">Power steering system <span style="float: right;">→</span></li>
+                    <li class="list-group-item" onclick="ListGroupItemOnClick('Computer diagnostic')">Computer diagnostic <span style="float: right;">→</span></li>
+                `
+            }
             break;
         case "Trailer SUSPENSION":
             document.getElementById("list-group").innerHTML = 
@@ -405,10 +466,13 @@ async function generatePDF() {
     emailjs.send("service_sgcklp9","template_9zqjshf", {
         type: choiceName,
         unit: $("#unit").val(),
-        date: $.date($("#datePicker").val()),
+        date: (isNaN($.date($("#datePicker").val())) ? $.date($("#datePicker").val()):(new Date()).toString()),
         company: $("#company").val(),
         hours: $("#hours").val(),
         technician: $("#other").val() == "" ? $("#tech-select").val() : $("#other").val(),
+
+        mileageForTruck: ($("#truckMileage").val() != undefined ? "Mileage For Truck: " + $("#truckMileage").val() : ""),
+        engineHoursTrailer: ($("#engineHours").val() != undefined ? "Engine Hours For Trailer: " + $("#engineHours").val() : ""),
 
         selected_types: selectedTypes,
 
